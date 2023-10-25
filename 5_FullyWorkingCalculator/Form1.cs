@@ -14,11 +14,14 @@ namespace _5_FullyWorkingCalculator
 {
     public partial class Calculator : Form
     {
-        private bool anotherOperation = false;
         public Calculator()
         {
             InitializeComponent();
         }
+
+        /*
+         *  The following buttons are for performing the operations
+         */
 
         private static string additionOperation(string eq1, string eq2)
         {
@@ -57,114 +60,63 @@ namespace _5_FullyWorkingCalculator
 
         private void resultBox_TextChanged(object sender, EventArgs e)
         {
-            // Create when last character is an operator  or a number push resultBox.Text to resultBoxTemp.Text
-            if (resultBox.Text.Length > 0)
+            if (resultBox.Text.Length == 0) return;
+
+            char lastChar = resultBox.Text[resultBox.Text.Length - 1];
+
+            if (IsOperator(lastChar))
             {
-                if (resultBox.Text[resultBox.Text.Length - 1] == '+' || resultBox.Text[resultBox.Text.Length - 1] == '-' || resultBox.Text[resultBox.Text.Length - 1] == '×' || resultBox.Text[resultBox.Text.Length - 1] == '÷' || resultBox.Text[resultBox.Text.Length - 1] == '%')
+                if (resultBoxTemp.Text.Length == 0)
                 {
-                    if (resultBoxTemp.Text.Length == 0)
-                    {
-                        resultBoxTemp.Text = resultBox.Text.Remove(resultBox.Text.Length - 1, 1) + " " + resultBox.Text[resultBox.Text.Length - 1];
-                        resultBox.Text = "";
-                    }
-                    else
-                    {
-                        string operand = resultBoxTemp.Text[resultBoxTemp.Text.Length - 1].ToString();
-                        string firstEquation = resultBoxTemp.Text.Remove(resultBoxTemp.Text.Length - 1, 1);
-                        string secondEquation = resultBox.Text.Remove(resultBox.Text.Length - 1, 1);
+                    resultBoxTemp.Text = resultBox.Text.Remove(resultBox.Text.Length - 1, 1) + " " + lastChar;
+                    resultBox.Text = "";
+                }
+                else
+                {
+                    string operand = lastChar.ToString();
+                    string firstEquation = resultBoxTemp.Text.Remove(resultBoxTemp.Text.Length - 1, 1);
+                    string secondEquation = resultBox.Text.Remove(resultBox.Text.Length - 1, 1);
 
-                        string result = "";
+                    string result = PerformOperation(operand, firstEquation, secondEquation);
 
-                        switch (operand)
-                        {
-                            case "+":
-                                result = additionOperation(firstEquation, secondEquation);
-                                break;
-                            case "-":
-                                result = subtractionOperation(firstEquation, secondEquation);
-                                break;
-                            case "×":
-                                result = multiplicationOperation(firstEquation, secondEquation);
-                                break;
-                            case "÷":
-                                result = divisionOperation(firstEquation, secondEquation);
-                                break;
-                            case "%":
-                                result = modulusOperation(firstEquation, secondEquation);
-                                break;
-                            default:
-                                break;
-                        }
-
-                        resultBoxTemp.Text = result + " " + resultBox.Text[resultBox.Text.Length - 1];
-                        resultBox.Text = "";
-                    }
+                    resultBoxTemp.Text = result + " " + lastChar;
+                    resultBox.Text = "";
                 }
             }
         }
 
-        private void button20_Click(object sender, EventArgs e)
+        private bool IsOperator(char c)
         {
-            resultBox.Text += "+";
+            return c == '+' || c == '-' || c == '×' || c == '÷' || c == '%';
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private string PerformOperation(string operand, string firstEquation, string secondEquation)
         {
-            resultBoxTemp.Text = "";
-            resultBox.Text = "";
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            resultBox.Text = "";
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            if (resultBox.Text.Length > 0)
+            switch (operand)
             {
-                resultBox.Text = resultBox.Text.Remove(resultBox.Text.Length - 1, 1);
+                case "+":
+                    return additionOperation(firstEquation, secondEquation);
+                case "-":
+                    return subtractionOperation(firstEquation, secondEquation);
+                case "×":
+                    return multiplicationOperation(firstEquation, secondEquation);
+                case "÷":
+                    return divisionOperation(firstEquation, secondEquation);
+                case "%":
+                    return modulusOperation(firstEquation, secondEquation);
+                default:
+                    return "";
             }
         }
 
-        private void button8_Click(object sender, EventArgs e)
+
+        /*
+         * The following buttons are for the Operand
+         */
+
+        private void button20_Click(object sender, EventArgs e)
         {
-            resultBox.Text += "÷";
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-            resultBox.Text += "7";
-        }
-
-        private void button10_Click(object sender, EventArgs e)
-        {
-            resultBox.Text += "8";
-        }
-
-        private void button11_Click(object sender, EventArgs e)
-        {
-            resultBox.Text += "9";
+            resultBox.Text += "+";
         }
 
         private void button12_Click(object sender, EventArgs e)
@@ -172,24 +124,32 @@ namespace _5_FullyWorkingCalculator
             resultBox.Text += "-";
         }
 
-        private void button13_Click(object sender, EventArgs e)
-        {
-            resultBox.Text += "4";
-        }
-
-        private void button14_Click(object sender, EventArgs e)
-        {
-            resultBox.Text += "5";
-        }
-
-        private void button15_Click(object sender, EventArgs e)
-        {
-            resultBox.Text += "6";
-        }
-
         private void button16_Click(object sender, EventArgs e)
         {
             resultBox.Text += "×";
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            resultBox.Text += "÷";
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            resultBox.Text += "%";
+        }
+
+
+        /*
+         * The following buttons are for the numbers
+         */
+
+        private void button22_Click(object sender, EventArgs e)
+        {
+            if (resultBox.Text.Length > 0)
+            {
+                resultBox.Text += "0";
+            }
         }
 
         private void button17_Click(object sender, EventArgs e)
@@ -207,16 +167,57 @@ namespace _5_FullyWorkingCalculator
             resultBox.Text += "3";
         }
 
-        private void button21_Click(object sender, EventArgs e)
+        private void button13_Click(object sender, EventArgs e)
         {
-
+            resultBox.Text += "4";
         }
 
-        private void button22_Click(object sender, EventArgs e)
+        private void button14_Click(object sender, EventArgs e)
+        {
+            resultBox.Text += "5";
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            resultBox.Text += "6";
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            resultBox.Text += "7";
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            resultBox.Text += "8";
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            resultBox.Text += "9";
+        }
+
+
+        /*
+         * The following buttons are for Clear, Clear Entry, Backspace, and Decimal
+         */
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            resultBoxTemp.Text = "";
+            resultBox.Text = "";
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            resultBox.Text = "";
+        }
+
+        private void button4_Click(object sender, EventArgs e)
         {
             if (resultBox.Text.Length > 0)
             {
-                resultBox.Text += "0";
+                resultBox.Text = resultBox.Text.Remove(resultBox.Text.Length - 1, 1);
             }
         }
 
@@ -228,24 +229,10 @@ namespace _5_FullyWorkingCalculator
             }
         }
 
-        private void button24_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void resultBox_VisibleChanged(object sender, EventArgs e)
-        {
-            // Seperate every 3 digits with a comma
-            for (int i = resultBox.Text.Length - 3; i > 0; i -= 3)
-            {
-                if (i == 2)
-                {
-                    break;
-                }
-                resultBox.Text = resultBox.Text.Insert(i, ",");
-            }
-        }
-
+        /*
+         *  The following buttons are for performing keyboard Press
+         */
         private void Form1_KeyPress(object sender, KeyPressEventArgs e)
         {
             switch (e.KeyChar)
@@ -304,16 +291,6 @@ namespace _5_FullyWorkingCalculator
                 default:
                     break;
             }
-        }
-
-        private void button3_Click_1(object sender, EventArgs e)
-        {
-            resultBox.Text += "%";
-        }
-
-        private void resultBoxTemp_TextChanged(object sender, EventArgs e)
-        {
-            
         }
     }
 }

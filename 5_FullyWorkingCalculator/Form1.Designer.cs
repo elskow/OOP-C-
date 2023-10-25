@@ -292,7 +292,6 @@
             this.button21.TabIndex = 21;
             this.button21.Text = "+/-";
             this.button21.UseVisualStyleBackColor = true;
-            this.button21.Click += new System.EventHandler(this.button21_Click);
             // 
             // btn0
             // 
@@ -334,7 +333,6 @@
             this.button24.TabIndex = 24;
             this.button24.Text = "=";
             this.button24.UseVisualStyleBackColor = true;
-            this.button24.Click += new System.EventHandler(this.button24_Click);
             // 
             // button6
             // 
@@ -348,7 +346,6 @@
             this.button6.TabIndex = 6;
             this.button6.Text = "x^2";
             this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button7
             // 
@@ -362,7 +359,6 @@
             this.button7.TabIndex = 7;
             this.button7.Text = "2√x";
             this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // resultBox
             // 
@@ -378,7 +374,6 @@
             this.resultBox.TabIndex = 25;
             this.resultBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.resultBox.TextChanged += new System.EventHandler(this.resultBox_TextChanged);
-            this.resultBox.VisibleChanged += new System.EventHandler(this.resultBox_VisibleChanged);
             // 
             // button3
             // 
@@ -392,7 +387,6 @@
             this.button3.TabIndex = 26;
             this.button3.Text = "%";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
             // resultBoxTemp
             // 
@@ -407,7 +401,6 @@
             this.resultBoxTemp.Size = new System.Drawing.Size(314, 24);
             this.resultBoxTemp.TabIndex = 27;
             this.resultBoxTemp.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.resultBoxTemp.TextChanged += new System.EventHandler(this.resultBoxTemp_TextChanged);
             // 
             // Calculator
             // 
@@ -441,7 +434,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Font = new System.Drawing.Font("SF UI  Text G 4", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);

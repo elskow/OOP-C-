@@ -67,7 +67,8 @@
             this.button1.Size = new System.Drawing.Size(74, 50);
             this.button1.TabIndex = 1;
             this.button1.Text = "C";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseMnemonic = false;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
@@ -333,6 +334,7 @@
             this.button24.TabIndex = 24;
             this.button24.Text = "=";
             this.button24.UseVisualStyleBackColor = true;
+            this.button24.Click += new System.EventHandler(this.button24_Click);
             // 
             // button6
             // 
@@ -442,6 +444,7 @@
             this.MinimizeBox = false;
             this.Name = "Calculator";
             this.Text = "Calculator";
+            this.Load += new System.EventHandler(this.Calculator_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();

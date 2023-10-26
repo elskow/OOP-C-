@@ -19,6 +19,8 @@ namespace _5_FullyWorkingCalculator
             InitializeComponent();
         }
 
+        protected bool haveCalculated = false;
+
         /*
          *  The following buttons are for performing the operations
          */
@@ -62,24 +64,30 @@ namespace _5_FullyWorkingCalculator
         {
             if (resultBox.Text.Length == 0) return;
 
+            if (haveCalculated)
+            {
+                resultBox.Text = "";
+                haveCalculated = false;
+                return;
+            }
+
             char lastChar = resultBox.Text[resultBox.Text.Length - 1];
 
             if (IsOperator(lastChar))
             {
                 if (resultBoxTemp.Text.Length == 0)
                 {
-                    resultBoxTemp.Text = resultBox.Text.Remove(resultBox.Text.Length - 1, 1) + " " + lastChar;
+                    resultBoxTemp.Text += resultBox.Text.Remove(resultBox.Text.Length - 1, 1) + lastChar;
+                    resultBox.Text = "";
+                }
+                else if (IsOperator(resultBoxTemp.Text[resultBoxTemp.Text.Length - 1]) && resultBox.Text.Length < 2)
+                {
+                    resultBoxTemp.Text = resultBoxTemp.Text.Remove(resultBoxTemp.Text.Length - 1, 1) + lastChar;
                     resultBox.Text = "";
                 }
                 else
                 {
-                    string operand = lastChar.ToString();
-                    string firstEquation = resultBoxTemp.Text.Remove(resultBoxTemp.Text.Length - 1, 1);
-                    string secondEquation = resultBox.Text.Remove(resultBox.Text.Length - 1, 1);
-
-                    string result = PerformOperation(operand, firstEquation, secondEquation);
-
-                    resultBoxTemp.Text = result + " " + lastChar;
+                    resultBoxTemp.Text += resultBox.Text.Remove(resultBox.Text.Length - 1, 1) + lastChar;
                     resultBox.Text = "";
                 }
             }
@@ -90,23 +98,48 @@ namespace _5_FullyWorkingCalculator
             return c == '+' || c == '-' || c == '×' || c == '÷' || c == '%';
         }
 
-        private string PerformOperation(string operand, string firstEquation, string secondEquation)
+        private string PerformOperation(string equation)
         {
-            switch (operand)
+            // Do an operation
+            // Sample equation: 1+2+3+4+5
+            if (resultBoxTemp.Text.Length == 0) return equation;
+
+            string[] operands = { "+", "-", "×", "÷", "%" };
+            string[] numbers = equation.Split(operands, StringSplitOptions.RemoveEmptyEntries);
+            string[] operators = equation.Split(numbers, StringSplitOptions.RemoveEmptyEntries);
+
+            string result = numbers[0];
+
+            if (operators.Length >= numbers.Length)
             {
-                case "+":
-                    return additionOperation(firstEquation, secondEquation);
-                case "-":
-                    return subtractionOperation(firstEquation, secondEquation);
-                case "×":
-                    return multiplicationOperation(firstEquation, secondEquation);
-                case "÷":
-                    return divisionOperation(firstEquation, secondEquation);
-                case "%":
-                    return modulusOperation(firstEquation, secondEquation);
-                default:
-                    return "";
+                operators = operators.Take(operators.Count() - 1).ToArray();
             }
+
+            for (int i = 0; i < operators.Length; i++)
+            {
+                switch (operators[i])
+                {
+                    case "+":
+                        result = additionOperation(result, numbers[i + 1]);
+                        break;
+                    case "-":
+                        result = subtractionOperation(result, numbers[i + 1]);
+                        break;
+                    case "×":
+                        result = multiplicationOperation(result, numbers[i + 1]);
+                        break;
+                    case "÷":
+                        result = divisionOperation(result, numbers[i + 1]);
+                        break;
+                    case "%":
+                        result = modulusOperation(result, numbers[i + 1]);
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            return result;
         }
 
 
@@ -121,12 +154,12 @@ namespace _5_FullyWorkingCalculator
 
         private void button12_Click(object sender, EventArgs e)
         {
-            resultBox.Text += "-";
+            resultBox.Text += "×";
         }
 
         private void button16_Click(object sender, EventArgs e)
         {
-            resultBox.Text += "×";
+            resultBox.Text += "-";
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -146,7 +179,7 @@ namespace _5_FullyWorkingCalculator
 
         private void button22_Click(object sender, EventArgs e)
         {
-            if (resultBox.Text.Length > 0)
+            if (resultBox.Text.Length > 0 || resultBoxTemp.Text.Length != 0)
             {
                 resultBox.Text += "0";
             }
@@ -276,10 +309,10 @@ namespace _5_FullyWorkingCalculator
                 case '+':
                     button20_Click(sender, e);
                     break;
-                case '-':
+                case '*':
                     button12_Click(sender, e);
                     break;
-                case '*':
+                case '-':
                     button16_Click(sender, e);
                     break;
                 case '/':
@@ -288,9 +321,39 @@ namespace _5_FullyWorkingCalculator
                 case '%':
                     button3_Click_1(sender, e);
                     break;
+                case '=':
+                    button24_Click(sender, e);
+                    break;
+                case '\r':
+                    button24_Click(sender, e);
+                    break;
                 default:
                     break;
             }
+        }
+
+        private void Calculator_Load(object sender, EventArgs e)
+        {
+            // When the app load dont focus on any button
+            this.ActiveControl = null;
+            this.ActiveControl = button24;
+        }
+
+        private void button24_Click(object sender, EventArgs e)
+        {
+            if (resultBox.Text.Length > 0)
+            {
+                resultBoxTemp.Text += resultBox.Text;
+                resultBox.Text = "";
+            }
+
+            string equation = resultBoxTemp.Text;
+            equation = PerformOperation(equation);
+
+            resultBoxTemp.Text = "";
+            resultBox.Text = equation;
+
+            haveCalculated = true;
         }
     }
 }

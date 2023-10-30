@@ -9,6 +9,11 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+// Import dependencies for the calculator
+using System.Globalization;
+using System.Text.RegularExpressions;
+using System.Threading;
+
 
 namespace _5_FullyWorkingCalculator
 {
@@ -20,45 +25,6 @@ namespace _5_FullyWorkingCalculator
         }
 
         protected bool haveCalculated = false;
-
-        /*
-         *  The following buttons are for performing the operations
-         */
-
-        private static string additionOperation(string eq1, string eq2)
-        {
-            // Addition
-            double result = Convert.ToDouble(eq1) + Convert.ToDouble(eq2);
-            return result.ToString();
-        }
-
-        private static string subtractionOperation(string eq1, string eq2)
-        {
-            // Subtraction
-            double result = Convert.ToDouble(eq1) - Convert.ToDouble(eq2);
-            return result.ToString();
-        }
-
-        private static string multiplicationOperation(string eq1, string eq2)
-        {
-            // Multiplication
-            double result = Convert.ToDouble(eq1) * Convert.ToDouble(eq2);
-            return result.ToString();
-        }
-
-        private static string divisionOperation(string eq1, string eq2)
-        {
-            // Division
-            double result = Convert.ToDouble(eq1) / Convert.ToDouble(eq2);
-            return result.ToString();
-        }
-
-        private static string modulusOperation(string eq1, string eq2)
-        {
-            // Modulus
-            double result = Convert.ToDouble(eq1) % Convert.ToDouble(eq2);
-            return result.ToString();
-        }
 
         private void resultBox_TextChanged(object sender, EventArgs e)
         {
@@ -100,46 +66,14 @@ namespace _5_FullyWorkingCalculator
 
         private string PerformOperation(string equation)
         {
-            // Do an operation
-            // Sample equation: 1+2+3+4+5
             if (resultBoxTemp.Text.Length == 0) return equation;
 
-            string[] operands = { "+", "-", "×", "÷", "%" };
-            string[] numbers = equation.Split(operands, StringSplitOptions.RemoveEmptyEntries);
-            string[] operators = equation.Split(numbers, StringSplitOptions.RemoveEmptyEntries);
+            DataTable dt = new DataTable();
 
-            string result = numbers[0];
+            equation = equation.Replace('×', '*');
+            equation = equation.Replace('÷', '/');
 
-            if (operators.Length >= numbers.Length)
-            {
-                operators = operators.Take(operators.Count() - 1).ToArray();
-            }
-
-            for (int i = 0; i < operators.Length; i++)
-            {
-                switch (operators[i])
-                {
-                    case "+":
-                        result = additionOperation(result, numbers[i + 1]);
-                        break;
-                    case "-":
-                        result = subtractionOperation(result, numbers[i + 1]);
-                        break;
-                    case "×":
-                        result = multiplicationOperation(result, numbers[i + 1]);
-                        break;
-                    case "÷":
-                        result = divisionOperation(result, numbers[i + 1]);
-                        break;
-                    case "%":
-                        result = modulusOperation(result, numbers[i + 1]);
-                        break;
-                    default:
-                        break;
-                }
-            }
-
-            return result;
+            return dt.Compute(equation, "").ToString();
         }
 
 

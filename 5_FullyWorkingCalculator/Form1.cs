@@ -70,8 +70,15 @@ namespace _5_FullyWorkingCalculator
 
             DataTable dt = new DataTable();
 
+            // If the equation ends with an operator, remove it
+            if (IsOperator(equation[equation.Length - 1]))
+            {
+                equation = equation.Remove(equation.Length - 1, 1);
+            }
+
             equation = equation.Replace('×', '*');
             equation = equation.Replace('÷', '/');
+
 
             return dt.Compute(equation, "").ToString();
         }

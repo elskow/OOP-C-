@@ -45,12 +45,9 @@
             this.btn2 = new System.Windows.Forms.Button();
             this.btn3 = new System.Windows.Forms.Button();
             this.button20 = new System.Windows.Forms.Button();
-            this.button21 = new System.Windows.Forms.Button();
             this.btn0 = new System.Windows.Forms.Button();
             this.button23 = new System.Windows.Forms.Button();
             this.button24 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
             this.resultBox = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.resultBoxTemp = new System.Windows.Forms.TextBox();
@@ -61,7 +58,7 @@
             this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.button1.Font = new System.Drawing.Font("SF UI  Text G 4", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(96, 126);
+            this.button1.Location = new System.Drawing.Point(96, 181);
             this.button1.Name = "button1";
             this.button1.Padding = new System.Windows.Forms.Padding(25, 10, 25, 10);
             this.button1.Size = new System.Drawing.Size(74, 50);
@@ -76,7 +73,7 @@
             this.button2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.button2.Font = new System.Drawing.Font("SF UI  Text G 4", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(16, 127);
+            this.button2.Location = new System.Drawing.Point(16, 181);
             this.button2.Name = "button2";
             this.button2.Padding = new System.Windows.Forms.Padding(25, 10, 25, 10);
             this.button2.Size = new System.Drawing.Size(74, 50);
@@ -90,10 +87,10 @@
             this.button4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.button4.Font = new System.Drawing.Font("SF UI  Text G 4", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(176, 124);
+            this.button4.Location = new System.Drawing.Point(256, 181);
             this.button4.Name = "button4";
             this.button4.Padding = new System.Windows.Forms.Padding(25, 10, 25, 10);
-            this.button4.Size = new System.Drawing.Size(154, 52);
+            this.button4.Size = new System.Drawing.Size(74, 52);
             this.button4.TabIndex = 4;
             this.button4.Text = "≪";
             this.button4.UseVisualStyleBackColor = true;
@@ -104,7 +101,7 @@
             this.button8.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.button8.Font = new System.Drawing.Font("SF UI  Text G 4", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(256, 180);
+            this.button8.Location = new System.Drawing.Point(256, 239);
             this.button8.Name = "button8";
             this.button8.Padding = new System.Windows.Forms.Padding(25, 10, 25, 10);
             this.button8.Size = new System.Drawing.Size(74, 52);
@@ -160,7 +157,7 @@
             this.button12.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.button12.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.button12.Font = new System.Drawing.Font("SF UI  Text G 4", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button12.Location = new System.Drawing.Point(256, 239);
+            this.button12.Location = new System.Drawing.Point(256, 297);
             this.button12.Name = "button12";
             this.button12.Padding = new System.Windows.Forms.Padding(25, 10, 25, 10);
             this.button12.Size = new System.Drawing.Size(74, 52);
@@ -216,7 +213,7 @@
             this.button16.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.button16.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.button16.Font = new System.Drawing.Font("SF UI  Text G 4", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button16.Location = new System.Drawing.Point(256, 297);
+            this.button16.Location = new System.Drawing.Point(256, 355);
             this.button16.Name = "button16";
             this.button16.Padding = new System.Windows.Forms.Padding(25, 10, 25, 10);
             this.button16.Size = new System.Drawing.Size(74, 52);
@@ -272,7 +269,7 @@
             this.button20.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.button20.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.button20.Font = new System.Drawing.Font("SF UI  Text G 4", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button20.Location = new System.Drawing.Point(256, 355);
+            this.button20.Location = new System.Drawing.Point(256, 413);
             this.button20.Name = "button20";
             this.button20.Padding = new System.Windows.Forms.Padding(25, 10, 25, 10);
             this.button20.Size = new System.Drawing.Size(74, 52);
@@ -280,19 +277,6 @@
             this.button20.Text = "+";
             this.button20.UseVisualStyleBackColor = true;
             this.button20.Click += new System.EventHandler(this.button20_Click);
-            // 
-            // button21
-            // 
-            this.button21.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button21.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button21.Font = new System.Drawing.Font("SF UI  Text G 4", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button21.Location = new System.Drawing.Point(16, 413);
-            this.button21.Name = "button21";
-            this.button21.Padding = new System.Windows.Forms.Padding(25, 10, 25, 10);
-            this.button21.Size = new System.Drawing.Size(74, 52);
-            this.button21.TabIndex = 21;
-            this.button21.Text = "+/-";
-            this.button21.UseVisualStyleBackColor = true;
             // 
             // btn0
             // 
@@ -313,7 +297,7 @@
             this.button23.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.button23.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.button23.Font = new System.Drawing.Font("SF UI  Text G 4", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button23.Location = new System.Drawing.Point(176, 413);
+            this.button23.Location = new System.Drawing.Point(16, 413);
             this.button23.Name = "button23";
             this.button23.Padding = new System.Windows.Forms.Padding(25, 10, 25, 10);
             this.button23.Size = new System.Drawing.Size(74, 52);
@@ -327,7 +311,7 @@
             this.button24.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.button24.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.button24.Font = new System.Drawing.Font("SF UI  Text G 4", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button24.Location = new System.Drawing.Point(256, 413);
+            this.button24.Location = new System.Drawing.Point(176, 413);
             this.button24.Name = "button24";
             this.button24.Padding = new System.Windows.Forms.Padding(25, 10, 25, 10);
             this.button24.Size = new System.Drawing.Size(74, 52);
@@ -335,32 +319,6 @@
             this.button24.Text = "=";
             this.button24.UseVisualStyleBackColor = true;
             this.button24.Click += new System.EventHandler(this.button24_Click);
-            // 
-            // button6
-            // 
-            this.button6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button6.Font = new System.Drawing.Font("SF UI  Text G 4", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(16, 183);
-            this.button6.Name = "button6";
-            this.button6.Padding = new System.Windows.Forms.Padding(25, 10, 25, 10);
-            this.button6.Size = new System.Drawing.Size(74, 52);
-            this.button6.TabIndex = 6;
-            this.button6.Text = "x^2";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button7.Font = new System.Drawing.Font("SF UI  Text G 4", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(96, 181);
-            this.button7.Name = "button7";
-            this.button7.Padding = new System.Windows.Forms.Padding(25, 10, 25, 10);
-            this.button7.Size = new System.Drawing.Size(74, 52);
-            this.button7.TabIndex = 7;
-            this.button7.Text = "2√x";
-            this.button7.UseVisualStyleBackColor = true;
             // 
             // resultBox
             // 
@@ -416,7 +374,6 @@
             this.Controls.Add(this.button24);
             this.Controls.Add(this.button23);
             this.Controls.Add(this.btn0);
-            this.Controls.Add(this.button21);
             this.Controls.Add(this.button20);
             this.Controls.Add(this.btn3);
             this.Controls.Add(this.btn2);
@@ -430,8 +387,6 @@
             this.Controls.Add(this.btn8);
             this.Controls.Add(this.btn7);
             this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -469,12 +424,9 @@
         private System.Windows.Forms.Button btn2;
         private System.Windows.Forms.Button btn3;
         private System.Windows.Forms.Button button20;
-        private System.Windows.Forms.Button button21;
         private System.Windows.Forms.Button btn0;
         private System.Windows.Forms.Button button23;
         private System.Windows.Forms.Button button24;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
         private System.Windows.Forms.TextBox resultBox;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox resultBoxTemp;

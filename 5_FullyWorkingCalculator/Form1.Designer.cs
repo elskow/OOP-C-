@@ -51,6 +51,7 @@
             this.resultBox = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.resultBoxTemp = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -362,12 +363,26 @@
             this.resultBoxTemp.TabIndex = 27;
             this.resultBoxTemp.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("SF UI  Text G 3", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.label1.Location = new System.Drawing.Point(193, 124);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(141, 28);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "Helmy LuqmanulHakim\r\n2205 1204 014";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
             // Calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(348, 487);
+            this.ClientSize = new System.Drawing.Size(348, 491);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.resultBoxTemp);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.resultBox);
@@ -398,6 +413,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Calculator";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Calculator";
             this.Load += new System.EventHandler(this.Calculator_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
@@ -430,6 +446,7 @@
         private System.Windows.Forms.TextBox resultBox;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox resultBoxTemp;
+        private System.Windows.Forms.Label label1;
     }
 }
 

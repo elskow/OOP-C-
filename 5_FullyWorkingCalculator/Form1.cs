@@ -296,5 +296,11 @@ namespace _5_FullyWorkingCalculator
 
             haveCalculated = true;
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(label1.Text);
+            MessageBox.Show("Copied to clipboard");
+        }
     }
 }

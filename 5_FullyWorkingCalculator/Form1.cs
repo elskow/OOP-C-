@@ -39,7 +39,7 @@ namespace _5_FullyWorkingCalculator
 
             char lastChar = resultBox.Text[resultBox.Text.Length - 1];
 
-            if (IsOperator(lastChar))
+            if (IsOperator(lastChar) && !haveCalculated)
             {
                 if (resultBoxTemp.Text.Length == 0)
                 {

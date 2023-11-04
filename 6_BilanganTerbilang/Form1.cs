@@ -59,10 +59,7 @@ namespace _6_BilanganTerbilang
         }
 
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            checkBox1.Checked = true;
-        }
+        private void Form1_Load(object sender, EventArgs e) { checkBox1.Checked = true; }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -272,6 +269,13 @@ namespace _6_BilanganTerbilang
         private void button1_Click(object sender, EventArgs e)
         {
             Clipboard.SetText(textBox2.Text);
+            MessageBoxIcon icon = MessageBoxIcon.Information;
+            MessageBox.Show("Copied to clipboard", "Success", MessageBoxButtons.OK, icon);
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(label1.Text);
             MessageBoxIcon icon = MessageBoxIcon.Information;
             MessageBox.Show("Copied to clipboard", "Success", MessageBoxButtons.OK, icon);
         }

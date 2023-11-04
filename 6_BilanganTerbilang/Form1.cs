@@ -64,12 +64,6 @@ namespace _6_BilanganTerbilang
             checkBox1.Checked = true;
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(textBox1.Text))
@@ -88,8 +82,7 @@ namespace _6_BilanganTerbilang
                     return;
                 }
 
-                if (isEnglish) textBox2.Text = $"{LongToEnUs(beforeComma)} point {LongToEnUs(afterComma)}";
-                if (!isEnglish) textBox2.Text = $"{LongToID(beforeComma)} koma {LongToID(afterComma)}";
+                textBox2.Text = isEnglish ? $"{LongToEnUs(beforeComma)} point {LongToEnUs(afterComma)}" : $"{LongToID(beforeComma)} koma {LongToID(afterComma)}";
                 return;
             }
 
@@ -98,8 +91,7 @@ namespace _6_BilanganTerbilang
                 textBox2.Text = "Input must be an integer";
                 return;
             }
-            if (isEnglish) textBox2.Text = LongToEnUs(input);
-            if (!isEnglish) textBox2.Text = LongToID(input);
+            textBox2.Text = isEnglish ? LongToEnUs(input) : LongToID(input);
         }
 
         private static string LongToEnUs(long input)
@@ -179,7 +171,7 @@ namespace _6_BilanganTerbilang
             return string.Join(" ", words);
         }
 
-        private static string LongToID (long input)
+        private static string LongToID(long input)
         {
             List<string> words = new List<string>();
 
@@ -245,7 +237,7 @@ namespace _6_BilanganTerbilang
                         break;
                 }
 
-                tripletEnd:
+            tripletEnd:
                 if (!string.IsNullOrEmpty(indonesiaMegas[idx]))
                 {
                     // exception for 1000
@@ -275,6 +267,13 @@ namespace _6_BilanganTerbilang
             }
 
             return triplets;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(textBox2.Text);
+            MessageBoxIcon icon = MessageBoxIcon.Information;
+            MessageBox.Show("Copied to clipboard", "Success", MessageBoxButtons.OK, icon);
         }
     }
 }
